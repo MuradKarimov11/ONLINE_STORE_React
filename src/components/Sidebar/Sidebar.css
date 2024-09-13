@@ -1,0 +1,49 @@
+.sidebar {
+  width: 304px;
+  padding: 24px;
+  height: 423px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar .title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: start;
+  color: white;
+}
+
+.menu {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+}
+
+.menu a {
+  line-height: 24px;
+  color: var(--dark-sea);
+}
+
+.link {
+  color: var(--dark-sea);
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: capitalize;
+}
+
+.link:hover {
+  color: var(--white);
+}
+
+.link.active {
+  color: var(--violet);
+}
+
+.sidebar .footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
