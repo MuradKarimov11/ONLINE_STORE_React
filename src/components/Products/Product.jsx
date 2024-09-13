@@ -7,7 +7,6 @@ import {ROUTES} from '../../utils/routes';
 import './Product.css';
 
 
-
 const SIZES = [4, 4.5, 5];
 
 const Product = (item) => {

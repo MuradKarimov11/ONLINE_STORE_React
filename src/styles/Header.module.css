@@ -86,25 +86,25 @@
   cursor: pointer;
 }
 
-.account .account-icon, .account-icon-cart {
+.account svg {
   width: 24px;
   height: 24px;
 }
 
-/* .icon-fav {
+.icon-fav {
   stroke: var(--grey);
   fill: none;
 }
 
 .icon-cart {
   fill: var(--grey);
-} */
+}
 
-.account-icon:hover {
+.icon-fav:hover {
   stroke: var(--white);
 }
 
-.account-icon-cart:hover {
+.icon-cart:hover {
   fill: var(--white);
 }
 
