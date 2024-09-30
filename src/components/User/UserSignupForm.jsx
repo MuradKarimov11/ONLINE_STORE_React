@@ -7,7 +7,7 @@ import { createUser } from "../../features/user/userSlice";
 
 import styles from '../../styles/User.module.css';
 
-const UserSignupForm = ({closeForm}) => {
+const UserSignupForm = ({toggleCurrentFormType, closeForm}) => {
     const dispatch = useDispatch();
     const [values, setValues] = useState({
         name: '',

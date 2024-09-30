@@ -1,41 +1,51 @@
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
-import { NavLink } from 'react-router-dom';
-import './Sidebar.css';
+import styles from "../../styles/Sidebar.module.css";
 
 const Sidebar = () => {
-
-    const {list} = useSelector(({categories}) => categories);
+    const { list } = useSelector(({ categories }) => categories);
 
     return (
-        <section className="sidebar">
-            <div className="title">CATEGORIES</div>
+        <section className={styles.sidebar}>
+            <div className={styles.title}>CATEGORIES</div>
             <nav>
-                <ul className="menu">
-                    {list.map(({id, name}) => (
+                <ul className={styles.menu}>
+                    {list.map(({ id, name }) => (
                         <li key={id}>
-                            <NavLink 
-                                className={({ isActive }) => 
-                                    `${'link'} ${isActive ? 'active' : ""}`
+                            <NavLink
+                                className={({ isActive }) =>
+                                `${styles.link} ${isActive ? styles.active : ""}`
                                 }
-                                to={`/categories/${id}`}>{name}</NavLink>
-                        </li>  
-                    )).slice(0, 5)}          
+                                to={`/categories/${id}`}
+                            >
+                                {name}
+                            </NavLink>
+                        </li>
+                    ))}
                 </ul>
             </nav>
 
-            <div className="footer">
-                <a href="/help" target="_blank" className='link'>Help</a>
+            <div className={styles.footer}>
                 <a 
-                    href="/terms" 
+                    href="/help" 
                     target="_blank" 
-                    className='link' 
-                    style={{textDecoration: "underline"}}>
+                    className={styles.link}
+                >
+                    Help
+                </a>
+                
+                <a
+                    href="/terms"
+                    target="_blank"
+                    className={styles.link}
+                    style={{ textDecoration: "underline" }}
+                >
                     Terms & Conditions
                 </a>
             </div>
         </section>
     );
-}
+};
 
 export default Sidebar;

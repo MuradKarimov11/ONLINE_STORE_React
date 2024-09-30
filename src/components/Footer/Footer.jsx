@@ -3,20 +3,20 @@ import { FaInstagram, FaFacebook, FaYoutube } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../utils/routes';
 
-import './Footer.css';
+import styles from "../../styles/Footer.module.css";
 
 import LOGO from '../../images/logo.svg';
 
 const Footer = () => {
   return (
-    <section className="footer">
-      <div className="logo">
+    <section className={styles.footer}>
+      <div className={styles.logo}>
         <Link to={ROUTES.HOME}>
           <img src={LOGO} alt="Stuff" /> 
         </Link>
       </div>
 
-      <div className="rights">
+      <div className={styles.rights}>
         Developed by{" "}
         <a href="https://github.com/MuradKarimov11?tab=repositories" 
           target="_blank" 
@@ -25,7 +25,7 @@ const Footer = () => {
         </a>
       </div>
 
-      <div className="socials">
+      <div className={styles.socials}>
         <a href="https://instagram.com" target="_blank" rel="noreferrer">
           <FaInstagram className="socials-icon"/>
         </a>

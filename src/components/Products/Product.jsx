@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 
 import {ROUTES} from '../../utils/routes';
 
-import './Product.css';
+import styles from "../../styles/Product.module.css";
 
+import { addItemToCart } from "../../features/user/userSlice";
 
 const SIZES = [4, 4.5, 5];
 
@@ -29,35 +30,37 @@ const Product = (item) => {
     };
 
     return (
-        <section className='product'>
-            <div className="images">
-                <div className="current"
+        <section className={styles.product}>
+            <div className={styles.images}>
+                <div className={styles.current}
                     style={{backgroundImage: `url(${currentImage})`}}/>
                 
-                <div className='images-list'>
+                <div className={styles['images-list']}>
                     {images.map((image, i) => (
                         <div key={i}
-                            className="current"
+                            className={styles.image}
                             style={{backgroundImage: `url(${image})`}}
                             onClick={() => setCurrentImage(image)}
                         />
                     ))}
                 </div>
             </div>    
-            <div className="info">
-                <h1 className="title">{title}</h1>
-                <div className="price">{price}$</div>
-                <div className="color">
+            <div className={styles.info}>
+                <h1 className={styles.title}>{title}</h1>
+                <div className={styles.price}>{price}$</div>
+                <div className={styles.color}>
                     <span>Color:</span>Green
                 </div>
-                <div className="sizes">
+                <div className={styles.sizes}>
                     <span>Sizes:</span>
 
-                    <div className="list">
+                    <div className={styles.list}>
                         {SIZES.map(size => (
                             <div 
                                 onClick={() => setCurrentSize(size)} 
-                                className={`${size} ${currentSize === size ? 'active' : ''}`} 
+                                className={`${styles.size} ${
+                                    currentSize === size ? styles.active : ""
+                                }`} 
                                 key={size}>
                                 {size}
                             </div>
@@ -66,15 +69,21 @@ const Product = (item) => {
 
                 </div>
 
-                <p className='description'>{description}</p>
+                <p className={styles.description}>{description}</p>
 
-                <div className="actions">
-                    <button onClick={addToCart} className='add' disabled={!currentSize}>Add to cart</button>
-                    <button className='favourite'>Add to favourites</button>
+                <div className={styles.actions}>
+                    <button 
+                        onClick={addToCart} 
+                        className={styles.add} 
+                        disabled={!currentSize}
+                    >
+                        Add to cart
+                    </button>
+                    <button className={styles.favourite}>Add to favourites</button>
                 </div>
 
-                <div className="bottom">
-                    <div className="purchase">19 people purchased</div>
+                <div className={styles.bottom}>
+                    <div className={styles.purchase}>19 people purchased</div>
 
                     <Link to={ROUTES.HOME}>Return to store</Link>
                 </div>
