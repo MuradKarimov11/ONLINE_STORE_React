@@ -18,7 +18,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const [searchValue, setSearchValue] = useState('');
-  const {currentUser} = useSelector(({user}) => user);
+  const {currentUser, cart} = useSelector(({user}) => user);
 
   const [values, setValues] = useState({ name: 'Guest', avatar: AVATAR});
 
@@ -62,38 +62,41 @@ const Header = () => {
               <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#search`} />
             </svg>
           </div>
-
           <div className={styles.input}>
-            <input 
-              type="search" 
-              name='search' 
-              placeholder='Search for anyting...'
-              autoComplete='off' 
+            <input
+              type="search"
+              name="search"
+              placeholder="Search for anyting..."
+              autoComplete="off"
               onChange={handleSearch}
-              value={searchValue}/>
+              value={searchValue}
+            />
           </div>
 
-          {searchValue && <div className={styles.box}>
-            {isLoading ? 'Loading' : !data.length ? "No results" : (
-              data.map(({title, images, id}) => {
-                return (
-                  <Link 
-                    key={id}
-                    onClick={() => setSearchValue("")}
-                    className={styles.item}
-                    to={`/products/${id}`}
-                  >
-                    <div
-                      className={styles.image}
-                      style={{ backgroundImage: `url(${images[0]})` }}
-                    />
-
-                    <div className={styles.title}>{title}</div>
-                  </Link>
-                )
-              })
-            )}            
-          </div>}
+          {searchValue && (
+            <div className={styles.box}>
+              {isLoading
+                ? "Loading"
+                : !data.length
+                ? "No results"
+                : data.map(({ title, images, id }) => {
+                    return (
+                      <Link
+                        key={id}
+                        onClick={() => setSearchValue("")}
+                        className={styles.item}
+                        to={`/products/${id}`}
+                      >
+                        <div
+                          className={styles.image}
+                          style={{ backgroundImage: `url(${images[0]})` }}
+                        />
+                        <div className={styles.title}>{title}</div>
+                      </Link>
+                    );
+                  })}
+            </div>
+          )}
         </form>
 
         <div className={styles.account}>
@@ -109,10 +112,10 @@ const Header = () => {
             {/* <svg className={["icon-cart"]}>
               <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#bag`} />
             </svg> */}
-            <span className={styles.count}>2</span>
+
+            {!!cart.length && <span className={styles.count}>{cart.length}</span>}
           </Link>
         </div>
-
       </div>
     </div>
   );

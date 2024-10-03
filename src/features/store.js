@@ -14,4 +14,4 @@ export const store = configureStore({
     },
     middleware: (getMiddleware) => getMiddleware().concat(apiSlice.middleware),
     devTools: true
-})
+});

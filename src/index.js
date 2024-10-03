@@ -5,10 +5,9 @@ import { Provider } from 'react-redux';
 import { store } from './features/store';
 import App from './components/App/App';
 
-import './index.css';
+import './styles/index.css';
 
-const root = createRoot(document.getElementById('root'));
-root.render(
+createRoot(document.getElementById("root")).render(
     <Provider store={store}>
         <BrowserRouter>
             <App />

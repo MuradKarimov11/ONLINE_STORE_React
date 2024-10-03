@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { updateUser } from "../../features/user/userSlice";
@@ -42,49 +42,49 @@ const Profile = () => {
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <div className={styles.group}>
                         <input
-                        type="email"
-                        placeholder="Your email"
-                        name="email"
-                        value={values.email}
-                        autoComplete="off"
-                        onChange={handleChange}
-                        required
+                            type="email"
+                            placeholder="Your email"
+                            name="email"
+                            value={values.email}
+                            autoComplete="off"
+                            onChange={handleChange}
+                            required
                         />
                     </div>
 
                     <div className={styles.group}>
                         <input
-                        type="name"
-                        placeholder="Your name"
-                        name="name"
-                        value={values.name}
-                        autoComplete="off"
-                        onChange={handleChange}
-                        required
+                            type="name"
+                            placeholder="Your name"
+                            name="name"
+                            value={values.name}
+                            autoComplete="off"
+                            onChange={handleChange}
+                            required
                         />
                     </div>
 
                     <div className={styles.group}>
                         <input
-                        type="password"
-                        placeholder="Your password"
-                        name="password"
-                        value={values.password}
-                        autoComplete="off"
-                        onChange={handleChange}
-                        required
+                            type="password"
+                            placeholder="Your password"
+                            name="password"
+                            value={values.password}
+                            autoComplete="off"
+                            onChange={handleChange}
+                            required
                         />
                     </div>
 
                     <div className={styles.group}>
                         <input
-                        type="avatar"
-                        placeholder="Your avatar"
-                        name="avatar"
-                        value={values.avatar}
-                        autoComplete="off"
-                        onChange={handleChange}
-                        required
+                            type="avatar"
+                            placeholder="Your avatar"
+                            name="avatar"
+                            value={values.avatar}
+                            autoComplete="off"
+                            onChange={handleChange}
+                            required
                         />
                     </div>
 

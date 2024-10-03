@@ -36,6 +36,7 @@ const productsSlice = createSlice({
         });
         builder.addCase(getProducts.fulfilled, (state, {payload}) => {
             state.list = payload;
+            state.isLoading = false;
         });
         builder.addCase(getProducts.rejected, (state) => {
             state.isLoading = false;

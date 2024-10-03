@@ -9,7 +9,6 @@ import styles from "../../styles/Category.module.css";
 
 
 const Category = () => {
-
     const {id} = useParams();
     const { list } = useSelector(({ categories }) => categories);
 
@@ -120,27 +119,27 @@ const Category = () => {
                 <div className="preloader">Loading...</div>
             ) : !isSuccess || !items.length ? (
                 <div className={styles.back}>
-                <span>No results</span>
-                <button onClick={handleReset}>Reset</button>
+                    <span>No results</span>
+                    <button onClick={handleReset}>Reset</button>
                 </div>
             ) : (
                 <Products
-                title=""
-                products={items}
-                style={{ padding: 0 }}
-                amount={items.length}
+                    title=""
+                    products={items}
+                    style={{ padding: 0 }}
+                    amount={items.length}
                 />
             )}
 
             {!isEnd && (
                 <div className={styles.more}>
-                <button
-                    onClick={() =>
-                    setParams({ ...params, offset: params.offset + params.limit })
-                    }
-                >
-                    See more
-                </button>
+                    <button
+                        onClick={() =>
+                            setParams({ ...params, offset: params.offset + params.limit })
+                        }
+                    >
+                        See more
+                    </button>
                 </div>
             )}
         

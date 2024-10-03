@@ -55,7 +55,7 @@ const Product = (item) => {
                     <span>Sizes:</span>
 
                     <div className={styles.list}>
-                        {SIZES.map(size => (
+                        {SIZES.map((size) => (
                             <div 
                                 onClick={() => setCurrentSize(size)} 
                                 className={`${styles.size} ${
@@ -66,7 +66,6 @@ const Product = (item) => {
                             </div>
                         ))}
                     </div>
-
                 </div>
 
                 <p className={styles.description}>{description}</p>
